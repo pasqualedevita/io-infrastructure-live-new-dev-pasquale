@@ -17,7 +17,7 @@ terraform {
 }
 
 inputs = {
-  name                = "dftest"
+  name                = "dfmonitor"
   resource_group_name = dependency.resource_group.outputs.resource_name
 
   resources_prefix = {
@@ -30,7 +30,7 @@ inputs = {
     kind     = "App"
     sku_tier = "Free"
     sku_size = "F1"
-  }
+ }
 
   // app_service_plan_info = {
   //  kind     = "elastic"
