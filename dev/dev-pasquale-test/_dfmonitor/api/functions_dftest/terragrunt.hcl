@@ -13,7 +13,7 @@ include {
 }
 
 terraform {
-  source = "git::git@github.com:pasqualedevita/io-infrastructure-modules-new-dev-pasquale.git//azurerm_function_app_new?ref=master"
+  source = "git::git@github.com:pasqualedevita/io-infrastructure-modules-new-dev-pasquale.git//azurerm_function_app?ref=master"
 }
 
 inputs = {
