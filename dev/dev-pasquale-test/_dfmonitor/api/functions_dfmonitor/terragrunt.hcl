@@ -21,16 +21,16 @@ inputs = {
   resource_group_name = dependency.resource_group.outputs.resource_name
 
   resources_prefix = {
-    function_app = "fn3"
+    function_app     = "fn3"
     app_service_plan = "fn3"
-    storage_account = "fn3"
+    storage_account  = "fn3"
   }
 
   app_service_plan_info = {
     kind     = "App"
     sku_tier = "Free"
     sku_size = "F1"
- }
+  }
 
   // app_service_plan_info = {
   //  kind     = "elastic"
