@@ -15,6 +15,10 @@ dependency "storage_account_pdvprivate" {
   config_path = "../../../storage_pdvprivate/storage_account"
 }
 
+dependency "storage_functions_content" {
+  config_path = "../../../storage_functions_content/storage_account"
+}
+
 # Include all settings from the root terragrunt.hcl file
 include {
   path = find_in_parent_folders()
@@ -54,9 +58,12 @@ inputs = {
   app_settings = {
     FUNCTIONS_WORKER_RUNTIME     = "node"
     WEBSITE_NODE_DEFAULT_VERSION = "10.14.1"
+    WEBSITE_RUN_FROM_PACKAGE     = "1"
     WEBSITE_VNET_ROUTE_ALL       = "1"
     WEBSITE_DNS_SERVER           = "168.63.129.16"
-    PdvPrivateStorageConnection  = dependency.storage_account_pdvprivate.outputs.primary_connection_string
+    // https://docs.microsoft.com/en-us/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/
+    WEBSITE_CONTENTAZUREFILECONNECTIONSTRING = dependency.storage_functions_content.outputs.primary_connection_string
+    PdvPrivateStorageConnection              = dependency.storage_account_pdvprivate.outputs.primary_connection_string
   }
 
   app_settings_secrets = {
