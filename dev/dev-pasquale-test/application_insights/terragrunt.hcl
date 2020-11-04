@@ -12,6 +12,6 @@ terraform {
 }
 
 inputs = {
-  name                = "dev-pasquale-test"
+  name                = "tdeploy"
   resource_group_name = dependency.resource_group.outputs.resource_name
 }
